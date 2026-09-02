@@ -102,7 +102,8 @@ p { margin: 0 0 1em; }
 }
 .topo__interno {
   display: flex; align-items: center; justify-content: space-between;
-  gap: 16px; padding: 14px 20px; max-width: var(--largura); margin: 0 auto;
+  gap: 10px 16px; padding: 14px 20px; max-width: var(--largura); margin: 0 auto;
+  flex-wrap: wrap;
 }
 .marca { display: inline-flex; align-items: center; text-decoration: none; flex: none; }
 /* flex: none nos dois níveis para a logo nunca ser espremida pela barra */
@@ -147,9 +148,10 @@ p { margin: 0 0 1em; }
 
 /* ------------------------------------------------------------------- cards */
 .grade { display: grid; gap: 22px; }
-.grade--2 { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
-.grade--3 { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
-.grade--4 { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+/* o min() evita que a coluna mínima estoure a largura em telas bem estreitas */
+.grade--2 { grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); }
+.grade--3 { grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr)); }
+.grade--4 { grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); }
 
 .cartao {
   background: var(--branco); border: 1px solid var(--areia-300);
@@ -338,8 +340,8 @@ p { margin: 0 0 1em; }
 
 .admin-topo { background: var(--verde-800); color: #fff; padding: 0; position: sticky; top: 0; z-index: 40; }
 .admin-topo__interno {
-  display: flex; align-items: center; justify-content: space-between; gap: 16px;
-  padding: 12px 20px; max-width: 1320px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between; gap: 10px 16px;
+  padding: 12px 20px; max-width: 1320px; margin: 0 auto; flex-wrap: wrap;
 }
 .admin-topo .nav a { color: var(--verde-200); }
 .admin-topo .nav a:hover { background: rgba(255, 255, 255, .12); color: #fff; }
